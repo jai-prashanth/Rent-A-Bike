@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - RentABike</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: rgba(196, 137, 154, 0.76);
+            color: #000a33;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #939d75;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav img {
+            height: 50px;
+            width: 70px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin-right: 10px;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background: rgba(4, 236, 180, 0.41);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .container p {
+            margin: 5px 0;
+        }
+
+        .footer-container {
+            background-color: #f5efef;
+            color: #0e0000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .table-closer {
+            border: 5px solid #153941;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: auto;
+        }
+
+        table thead {
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>RentABike</h1>
+</header>
+
+<nav>
+    <a href="/home"><img src="/images/RentABike_logo.png" height="50" width="70" alt="Logo"></a>
+    <ul>
+        <li><a href="/home" style="text-decoration: none">Home</a></li>
+        <li><a href="/blog" style="text-decoration: none">Blog</a></li>
+        <!--        <li><a href="/bookings" style="text-decoration: none; color: #fff;">bookings</a></li>-->
+        <!--        <li> username</li>-->
+        <li><a href="/bookings/">bookings</a></li>
+        <li><a href="tel:+917337430918" style="text-decoration: none">Call Us</a></li>
+    </ul>
+</nav>
+
+<h1>CREATE BOOKING!!!</h1>
+
+<div class="footer-container">
+    <div class="table-closer">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="4">Why to choose RentABike?</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <img src="/images/largestFleet.jpg" width="250" height="200" alt="Largest Fleet Size" style="border: 4px solid #0e0000">
+                </td>
+                <td>
+                    <img src="/images/GoodService.jpg" width="250" height="200" alt="Good service" style="border: 4px solid #0e0000">
+                </td>
+                <td>
+                    <img src="/images/GoodBikes.jpeg" width="250" height="200" alt="Bikes condition" style="border: 4px solid #0e0000">
+                </td>
+                <td>
+                    <img src="/images/trustworthy.jpg" width="250" height="200" alt="Easy Cancellation" style="border: 4px solid #0e0000">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Largest fleet size</h3>
+                    <p>We boast the largest fleet of top-quality bikes, ensuring you have a wide range of choices for your ride.</p>
+                </td>
+                <td>
+                    <h3>Good services</h3>
+                    <p>Our employees are very polite and will provide good services.</p>
+                </td>
+                <td>
+                    <h3>Bikes in condition</h3>
+                    <p>All bikes are well serviced and are in good condition.</p>
+                </td>
+                <td>
+                    <h3>Most Trusted Agency</h3>
+                    <p>Most people trust RentABike agency for renting a bike.</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <table>
+        <tr>
+            <td>
+                <h3>Address</h3>
+                <p>Door No: AB/CD<br>Locality: locality<br>Bidar City, Bidar District<br>Karnataka, India</p>
+            </td>
+            <td>
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/help">Help</a></li>
+                    <li><a href="/privacy">Privacy Policies</a></li>
+                    <li><a href="/terms">Terms and Conditions</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <p>&copy; 2023 RentABike Bike Rental Services Pvt Ltd.</p>
+</div>
+
+</body>
+</html>

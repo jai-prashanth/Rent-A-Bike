@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentABike - Bike Rentals</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #354f82;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color:  #fdc12a;
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav img {
+            height: 50px;
+            width: 70px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin-right: 10px;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #4CAF50;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>RentABike</h1>
+</header>
+
+<nav>
+    <a href="/home"><img src="/images/RentABike_logo.png" height="150" width="50" alt="Logo"></a>
+    <ul>
+        <li><a href="/home" style="text-decoration: none">Home</a></li>
+<!--        <li><a href="/home" style="text-decoration: none">Login/Signup</a></li>-->
+        <li><a href="tel:+917337430918" style="text-decoration: none">Call Us</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2>Exploring the Outdoors: A Biker's Guide</h2>
+    <p>Published on October 27, 2023</p>
+
+    <img th:src="@{/images/bikeAdventure.jpg}" alt="Biking Adventure" width="800" height="400">
+
+    <p>
+        Are you ready for an exhilarating biking adventure? Whether you're a seasoned cyclist or a beginner, exploring the outdoors on two wheels can be a thrilling experience. At RentABike, we believe in the joy of biking, and we want to share some tips for your next biking adventure.
+    </p>
+
+    <h3>Choose the Right Bike</h3>
+    <p>
+        Selecting the right bike is crucial for a comfortable and enjoyable ride. Our bike rental service offers a diverse range of bikes, from mountain bikes for rugged trails to sleek road bikes for a smooth ride on city streets.
+    </p>
+
+    <h3>Plan Your Route</h3>
+    <p>
+        Plan your biking route in advance. Whether you prefer scenic trails or urban paths, knowing your route helps you make the most of your biking experience. Consider factors like terrain, distance, and points of interest.
+    </p>
+
+    <h3>Check Your Gear</h3>
+    <p>
+        Before hitting the road, ensure that your biking gear is in top condition. Check your helmet, brakes, tires, and other essential components. Safety is a priority, and our well-maintained bikes are designed to keep you secure during your ride.
+    </p>
+
+    <h3>Embrace the Outdoors</h3>
+    <p>
+        Biking is not just a mode of transportation; it's a way to connect with nature. Take breaks, enjoy the scenery, and embrace the outdoors. Whether you're biking solo or with friends, create memorable moments on your journey.
+    </p>
+
+    <h3>Share Your Adventure</h3>
+    <p>
+        We love hearing about your biking adventures! Share your photos and stories on social media, and don't forget to tag us. Join the RentABike community and inspire others to embark on their biking adventures.
+    </p>
+
+    <p>
+        RentABike is here to support your passion for biking. Explore our bike rental options, and let the adventure begin!
+    </p>
+
+    <p>Happy biking!</p>
+</section>
+
+<footer>
+    <table>
+        <tr>
+            <td>
+                <h3>Address</h3>
+                <p>Door No: AB/CD<br>Locality: locality<br>Bidar City, Bidar District<br>Karnataka, India</p>
+            </td>
+            <td>
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/help">Help</a></li>
+                    <li><a href="/privacy">Privacy Policies</a></li>
+                    <li><a href="/terms">Terms and Conditions</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <p>&copy; 2023 RentABike Bike Rental Services Pvt Ltd.</p>
+</footer>
+
+</body>
+</html>

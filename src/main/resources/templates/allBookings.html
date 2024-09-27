@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 16px; /* Add more padding to the table cells */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            border-radius: 10px; /* Make the corners rounded */
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+        nav {
+            background-color: #4bb3be;
+            padding: 20px;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #555;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<nav>
+    <li><a href="/admin" style="text-decoration: none">Home</a></li>
+</nav>
+<body>
+<h1>Bookings List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Booking ID</th>
+        <th>Customer ID</th>
+        <th>Registration Number</th>
+        <th>Booking Time</th>
+        <th>Pickup Time</th>
+        <th>Return Time</th>
+        <th>Total Payment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="booking : ${allBookings}">
+        <td th:text="${booking.bookingId}"></td>
+        <td th:text="${booking.customerId}"></td>
+        <td th:text="${booking.registrationNumber}"></td>
+        <td th:text="${booking.bookingTime}"></td>
+        <td th:text="${booking.pickupTime}"></td>
+        <td th:text="${booking.returnTime}"></td>
+        <td th:text="${booking.totalPayment}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

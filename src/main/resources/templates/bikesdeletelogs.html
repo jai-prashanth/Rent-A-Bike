@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bike Update Logs</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+            color: #333;
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+        nav {
+            background-color: #4bb3be;
+            padding: 20px;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #555;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<nav>
+    <li><a href="/admin" style="text-decoration: none">Home</a></li>
+</nav>
+<body>
+
+<h2>Bike Delete Logs</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Log ID</th>
+        <th>Registration Number</th>
+        <th>Change Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Use Thymeleaf iteration to loop through bikeupdatelogs -->
+    <tr th:each="log : ${allBikeDeleteLogs}">
+        <td th:text="${log.logId}"></td>
+        <td th:text="${log.registration_number}"></td>
+        <td th:text="${log.deletetime}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

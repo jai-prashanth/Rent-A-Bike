@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of Accidents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            background: linear-gradient(to right, #00B4DB, #0083B0);
+            color: #fff;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: linear-gradient(to bottom, #f7f7f7, #ffffff);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 20px; /* Add border radius for rounded corners */
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            position: relative;
+            font-weight: normal; /* Make the text less bold */
+            border-radius: 20px; /* Increase border radius for a more rounded shape */
+        }
+
+        th:first-child {
+            border-radius: 20px 0 0 0; /* Rounded top-left corner for the first header */
+        }
+
+        th:last-child {
+            border-radius: 0 20px 0 0; /* Rounded top-right corner for the last header */
+        }
+
+        td:first-child {
+            border-radius: 0 0 0 20px; /* Rounded bottom-left corner for the first column */
+        }
+
+        td:last-child {
+            border-radius: 0 0 20px 0; /* Rounded bottom-right corner for the last column */
+        }
+
+        tr:nth-child(even) {
+            background: linear-gradient(to bottom, #f2f2f2, #f7f7f7);
+        }
+
+        tr:hover {
+            background: linear-gradient(to bottom, #e0e0e0, #e7e7e0);
+        }
+
+        .header-text {
+            position: relative;
+            z-index: 2; /* Place text above the background shape */
+        }
+
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, #00B4DB, #0083B0);
+            border-radius: 20px;
+            z-index: 1;
+        }
+        nav {
+            background-color: #4bb3be;
+            padding: 20px;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #555;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+<h1>List of Accidents</h1>
+<nav>
+    <li><a href="/admin" style="text-decoration: none">Home</a></li>
+</nav>
+<div class="table-container">
+    <table>
+        <tr>
+            <th>
+                <div class="header-text">Accident Number</div>
+                <div class="header-background"></div>
+            </th>
+            <th>
+                <div class="header-text">Registration Number</div>
+                <div class="header-background"></div>
+            </th>
+            <th>
+                <div class="header-text">User Id</div>
+                <div class="header-background"></div>
+            </th>
+            <th>
+                <div class="header-text">Accident Date</div>
+                <div class="header-background"></div>
+            </th>
+            <th>
+                <div class="header-text">Accident Location</div>
+                <div class="header-background"></div>
+            </th>
+            <th>
+                <div class="header-text">Accident Description</div>
+                <div class="header-background"></div>
+            </th>
+        </tr>
+        <tr th:each="accidents, stat: ${allAccidents}">
+            <td th:text="${stat.index + 1}"></td>
+            <td th:text="${accidents.registrationNumber}"></td>
+            <td th:text="${accidents.userId}"></td>
+            <td th:text="${accidents.accidentDate}"></td>
+            <td th:text="${accidents.accidentLocation}"></td>
+            <td th:text="${accidents.accidentDescription}"></td>
+<!--            <td th:text="${bike.isAvailable}"></td>-->
+<!--            <td th:text="${bike.ratePerHour}"></td>-->
+        </tr>
+    </table>
+</div>
+</body>
+</html>

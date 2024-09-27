@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            text-align: center;
+            background-color: #354f82;
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            background-color: #293d6d;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            max-width: 80px; /* Adjust as needed */
+        }
+
+        .logout {
+            text-decoration: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            background-color: #e74c3c;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-list {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 20px;
+        }
+
+        .button {
+            text-decoration: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            background-color: #032dd2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Admin Panel</h1>
+</header>
+
+<nav>
+    <a href="/homeUser"> <img src="/images/RentABike_logo.png" height="50" width="70" alt="Logo" class="logo"></a>
+    <a href="/logout" class="logout">Logout</a>
+</nav>
+
+<div class="button-list">
+    <a href="/homeUser" class="button"> User Home</a>
+    <a href="/addBike" class="button">Add Bike</a>
+    <a href="/updateBike" class="button">Update Bike</a>
+    <a href="/deleteBike" class="button">Delete Bike</a>
+    <a href="/bikes" class="button">List of Bikes</a>
+    <a href="/accidents" class="button">All Accidents</a>
+    <a href="/addAccident" class="button">Add an Accident</a>
+    <a href="/listofusers" class="button">List of Users</a>
+    <a href="/blocklist" class="button">Blocklist</a>
+    <a href="/allbookings" class="button">Bookings</a>
+    <a href="/bikeupdatelogs" class="button">Update Logs</a>
+    <a href="/bikesdeletelogs" class="button">Deleted bikes</a>
+</div>
+
+</body>
+</html>

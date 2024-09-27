@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lan="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Payment</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #354f82;
+      color: #fff;
+      padding: 20px;
+      font-size: 24px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .payment-button {
+      background-color: #354f82;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      padding: 12px 20px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .payment-button:hover {
+      background-color: #293d6d;
+    }
+
+    .input-box {
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      width: 100%;
+    }
+
+    .credit-card-details {
+      border: 1px solid #e0e0e0;
+      border-radius: 25px;
+      padding: 20px;
+    }
+
+    .credit-card-details label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .required-label {
+      color: #e74c3c;
+    }
+
+    .required {
+      border: 1px solid #e74c3c;
+    }
+  </style>
+</head>
+<body>
+<header>
+  Payment
+</header>
+<div class="container">
+  <form>
+    <p>This amount is only for caution deposit.All the remaining payments will be done at the return</p>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" th:value="${amount}" class="input-box" disabled>
+
+    <button class="payment-button" id="payment-button">Pay Now</button>
+  </form>
+</div>
+<script>
+  let payment_button = document.getElementById("payment-button").addEventListener("click",(e)=>{
+    e.preventDefault();
+    paymentStart();
+
+  })
+
+  function paymentStart() {
+
+
+    alert("You have started payment process");
+    let amount = document.getElementById("amount").value;
+    //console.log(amount);
+    if(amount === '' || amount==null){
+      alert("Please enter amount");
+      return false;
+    }
+
+    $.ajax(
+            {
+              url: "/payment",
+              type: "POST",
+              dataType: 'json',
+              data: new URLSearchParams({
+                amount: amount
+              }).toString(),
+              keepalive: 5000,
+              contentType:'application/x-www-form-urlencoded',
+              success: function (response) {
+                console.log(response);
+                if (response.status === "created") {
+                  alert("Redirecting to payment page");
+                  let options = {
+                    key: "rzp_test_sQ8dXiMJeBHGZW", // Enter the Key ID generated from the Dashboard
+                    amount: response.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                    currency: "INR",
+                    name: "RentABike",
+                    description: "Bike Booking",
+                    image: "images/RentABike_logo.png",
+                    orderId: response.id,
+                    handler: function (response) {
+                      alert("Payment Successful");
+                      console.log(response.razorpay_payment_id)
+                      console.log(response.razorpay_order_id)
+                      console.log(response.razorpay_signature)
+                      console.log("Payment successful!")
+                      window.location.href = "/paymentsuccess";
+                    },
+                    prefill: {
+                      name: "",
+                      email: "",
+                      phone_number: "",
+                    },
+                    notes:{
+                      address: "RentABike bike rental services, Karnataka",
+                    },
+                    theme: {
+                      color: "#3399cc",
+                    },
+                  }
+                  let paymentObject = new Razorpay(options);
+
+                  paymentObject.on("payment.failed", function (response){
+                    console.log(response.error.code);
+                    console.log(response.error.description);
+                    console.log(response.error.source);
+                    alert("Payment failed because of reason: "+ response.error.reason);
+                  })
+                  paymentObject.open();
+                }
+                if (response.status === "success") {
+                  // alert("Payment Successful");
+                  console.log("Redirecting to /blog");
+                  window.location.href = "/blog"; // Redirect to the "/blog" page
+                }
+
+
+              },
+              error: function (e) {
+                console.log(e);
+                alert("Payment Failed!");
+              }
+            }
+    )
+  }
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+</body>
+</html>

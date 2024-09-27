@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Bike</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #f4f4f4;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #007BFF;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-check-label {
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #007BFF;
+    }
+
+    .btn-primary {
+      background-color: #007BFF;
+      border: none;
+      font-weight: bold;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2 class="mt-5">Add a Bike</h2>
+  <form action="/addBike" method="post">
+    <div class="form-group">
+      <label for="registrationNumber" style="color: #000000;">Registration Number:</label>
+      <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" pattern="(AP|AR|AS|BR|CG|CH|DD|DL|GA|GJ|HP|HR|JH|JK|KA|KL|LA|LD|MH|ML|MN|MP|MZ|NL|OD|PB|PY|RJ|SK|TN|TR|TS|UK|UP|WB)\d{2}[A-Za-z]{2}\d{4}" title="Registration Number should be like KA12BA4187" required>
+    </div>
+
+    <div class="form-group">
+      <label for="bikeModel" style="color: #000000;">Bike Model:</label>
+      <input type="text" class="form-control" id="bikeModel" name="bikeModel" required>
+    </div>
+
+    <div class="form-group">
+      <label for="bikeStatus" style="color: #000000;">Bike Status:</label>
+      <input type="text" class="form-control" id="bikeStatus" name="bikeStatus" required>
+    </div>
+
+    <div class="form-group">
+      <label for="CBookNumber" style="color: #000000;">CBook Number:</label>
+      <input type="text" class="form-control" id="CBookNumber" name="CBookNumber" required>
+    </div>
+
+    <div class="form-group">
+      <label for="Insurance" style="color: #000000;">Insurance:</label>
+      <input type="text" class="form-control" id="Insurance" name="Insurance" required>
+    </div>
+
+    <div class="form-group">
+      <label for="isAvailable" style="color: #000000;">Is Available:</label>
+      <select class="form-control" id="isAvailable" name="isAvailable" required>
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ratePerHour" style="color: #000000;">Rate per Hour:</label>
+      <input type="number" class="form-control" id="ratePerHour" name="ratePerHour" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Bike</button>
+  </form>
+</div>
+
+<!-- Include Bootstrap JS and jQuery (for optional interactivity) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
